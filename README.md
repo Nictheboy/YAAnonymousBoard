@@ -18,13 +18,8 @@ This project can be run using Docker Compose for easy deployment.
    ```
 3. Access the application in your browser:
    ```
-   http://localhost:8080
+   http://localhost:80
    ```
-
-### Database Information
-- Database: anonymous_wall
-- User: anon_user
-- Password: anon_password
 
 ### Stopping the Application
 ```
