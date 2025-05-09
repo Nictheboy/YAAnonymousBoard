@@ -1,10 +1,10 @@
 <?php
 $host = 'mysql';
 $db = 'anonymous_wall';
-$user = 'anon_user';
-$pass = 'anon_password';
+$user = 'root';
+$pass = 'root';
 
-$dsn = "mysql:host=$host;dbname=$db;charset=utf8mb4";
+$dsn = "mysql:unix_socket=/run/mysqld/mysqld.sock;dbname=$db;charset=utf8mb4";
 $options = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
