@@ -1,6 +1,7 @@
 <?php
 session_start();
 require 'config.php';
+require 'security.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
@@ -15,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Location: index.php');
         exit();
     } else {
-        echo 'Invalid email or password';
+        $error_message = 'Invalid email or password';
     }
 }
 ?>
@@ -31,6 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <div class="container">
         <h1 class="title">Login</h1>
+        <?php if (isset($error_message)): ?>
+            <div class="error"><?php safe_echo($error_message); ?></div>
+        <?php endif; ?>
         <form action="login.php" method="post" class="form">
             <div class="form-group">
                 <label for="email" class="form-label">Email</label>
@@ -42,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
             <button type="submit" class="btn">Login</button>
         </form>
+        <p class="register-link">Don't have an account? <a href="register.php">Register here</a></p>
     </div>
 </body>
 </html>
